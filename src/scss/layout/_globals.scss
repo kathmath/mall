@@ -1,0 +1,299 @@
+/*  project styles */
+@font-face {
+	font-family: 'Rafika';
+	src: url('fonts/rafika.eot');
+	src: local('☺'), url('fonts/rafika.woff') format('woff'), url('fonts/rafika.ttf') format('truetype'), url('fonts/rafika.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Boston';
+	src: url('fonts/boston.eot');
+	src: local('☺'), url('fonts/boston.woff') format('woff'), url('fonts/boston.ttf') format('truetype'), url('fonts/boston.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300);
+@import url(https://fonts.googleapis.com/css?family=Monoton);
+@import url(https://fonts.googleapis.com/css?family=Teko:700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:800);
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(https://fonts.googleapis.com/css?family=Anton);
+@import url(https://fonts.googleapis.com/css?family=Londrina+Outline);
+
+//variables
+$margin: 1em;
+$padding: 1em;
+$radius: 1em;
+$color1: #000;
+$color2: #283781;
+$color3: tomato;
+$color4: darkseagreen;
+$color5: #777;
+$color6: #fff;
+$hovercolor: darkseagreen;
+$main-font: 'Lato', sans-serif;
+$head-font: 'Raleway', sans-serif;
+
+//mixins
+@mixin headings($size) {
+	font-family: $head-font;
+	margin: 1rem 0rem;
+	color: $color1;
+	font-size: $size;
+}
+
+@mixin flex_container($flex-direction, $align-items, $justify-content, $wrap) {
+	display: flex;
+	flex-direction: $flex-direction;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-wrap: $wrap;
+}
+
+//main tag styles
+// p, a, h1, h2, h3 {
+// 	-webkit-margin-before: 0;
+//     -webkit-margin-after: 0;
+//     -webkit-margin-start: 0;
+//     -webkit-margin-end: 0;
+// }
+
+h1  {
+	@include headings(6rem);
+	text-align: center;
+	a {
+		color: inherit;
+	}
+	a:hover {
+		border-bottom: none;
+		color: $hovercolor;
+	}
+  }
+
+h2 {
+	@include headings(1rem);
+	color: $color5;
+}
+
+h3 {
+	@include headings(1.4rem);
+	font-style: bold;
+}
+
+h4 {
+	@include headings(1.2rem);
+}
+
+h5 {
+	@include headings(1.2rem);
+	margin-top: 0;
+}
+
+[type=button], [type=submit], input[type=search] {
+    border-radius: 0.4rem;
+}
+
+
+//class & id styles
+
+.head-container { 
+	margin: 0 auto; 
+	max-width: 70em;
+}
+
+.colorChange {
+	animation-name: colorChange;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+//fonts
+
+.rafika {
+	font-family: 'Rafika';
+}
+
+.boston {
+	font-family: 'Boston';
+}
+
+.marker {
+	font-family: 'Permanent Marker', sans-serif;
+}
+
+.monoton {
+	font-family: 'Monoton', sans-serif;
+}
+
+.teko {
+	font-family: 'Teko', sans-serif;
+}
+
+.raleway {
+	font-family: 'Raleway', sans-serif;
+}
+
+.ptsans {
+	font-family: 'PT Sans', sans-serif;
+}
+
+.oswald {
+	font-family: 'Oswald', sans-serif;
+	text-shadow: 5px 5px 5px #888;
+}
+
+.anton {
+	font-family: 'Anton', sans-serif;
+}
+
+.londrina {
+	font-family: 'Londrina Outline', cursive;
+}
+
+
+//nav styles
+//desktop
+.top-bar {
+	width: 100%;
+	margin: 0;
+	margin-bottom: 1rem;
+}
+
+.dropdown.menu .submenu {
+	background-color: $color1;
+	color: $color6;
+	border: none;
+}
+
+.top-bar-left { 
+    padding-top: 0.5rem;
+}
+
+.top-bar {
+    background-color: $color1;
+    padding: 0;
+    a {
+    	color: $color6;
+    }
+    ul {
+    	background-color: $color1;
+    }
+}
+
+//mobile
+#main-menu-mobile {
+	display: none !important;
+	background-color: black;
+	a {
+		color: #fff;
+		font-size: 1.6rem;
+	}
+	i {
+		padding-right: 0.6rem;
+		font-size: 2rem;
+	}
+	h3 {
+		font-size: inherit;
+	}
+	a:hover {
+		border: none;
+	}
+}
+
+.is-accordion-submenu-parent>a::after {
+	border-color: #fff transparent transparent;
+}
+
+.dropdown.menu .has-submenu.is-down-arrow>a::after {
+	border-color: #fff transparent transparent;
+}
+
+.transparent {
+	background-color: transparent;
+	color: white;
+}
+
+.article-image-title {
+	background-color: $color6;
+	color: $color1;
+	padding-bottom: 1.4rem;
+	h3 {
+		color: $color1;
+		margin: 0;
+	}
+	a {
+		color: $color1;
+		text-decoration: underline;
+	}
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.flex-row {
+	@include flex_container(row, center, space-between, wrap);
+	max-width: 75rem;
+	margin: 0 auto;
+	align-content: stretch;
+	h3 {
+		color: blue;
+	}
+}
+
+.flex-item {
+	padding: 1rem;
+
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: #000;
+  }
+  20% {
+    background-color: linear-gradient(to right, blue, #000);
+  }
+  40% {
+    background-color: linear-gradient(to left, blue, #000);
+  }
+  60% {
+    background-color: blue;
+  }
+  80% {
+    background-color: linear-gradient(to right, blue, #000);
+  }
+  100% {
+    background-color: #000;
+  }
+}
+
+//media queries
+
+@media (max-width: 700px) {
+	#main-menu {
+		display: none;
+	}
+	#main-menu-mobile {
+		display: block !important;
+		input[type=search] {
+			width: 70%;
+			margin: 0.7rem 1rem;
+			display: inline;
+		}
+		button {
+			color: #fff;
+		}
+	}
+	.flex-row {
+	@include flex_container(column, center, center, wrap);
+	max-width: 75rem;
+	margin: 0 auto;
+}
+	
+
+}
